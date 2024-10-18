@@ -1,6 +1,6 @@
 {
   "name": "@usecannon/web-solc",
-  "version": "0.5.1-alpha.0",
+  "version": "0.5.1-alpha.1",
   "author": "g. nicholas d'andrea <nick@gnidan.org>",
   "main": "dist/src/node.js",
   "browser": "dist/src/browser.js",
@@ -18,10 +18,10 @@
   "scripts": {
     "build:node": "bun build ./src/index.ts --outfile ./dist/src/node.js --target node --format cjs",
     "build:browser": "bun build ./src/index.ts --outfile ./dist/src/browser.js --target browser",
-    "build:types": "bun run tsc --declaration --types web-solc",
+    "build:types": "bun run dts-bundle-generator --external-inlines web-solc -o ./dist/src/browser.d.ts ./src/index.ts",
     "build": "rm -rf ./dist && bun run build:node && bun run build:browser && bun run build:types"
   },
   "devDependencies": {
-    "typescript": "^5.6.3"
+    "dts-bundle-generator": "^9.5.1"
   }
 }
