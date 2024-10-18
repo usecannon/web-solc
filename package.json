@@ -4,7 +4,7 @@
   "author": "g. nicholas d'andrea <nick@gnidan.org>",
   "main": "dist/src/node.js",
   "browser": "dist/src/browser.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/browser.d.ts",
   "files": ["dist"],
   "repository": {
     "type": "git",
