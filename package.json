@@ -16,6 +16,7 @@
   "description": "Fork of https://www.npmjs.com/package/web-solc with commonjs build",
   "license": "MIT",
   "scripts": {
+    "prepublishOnly": "bun run build",
     "build:node": "bun build ./src/index.ts --outfile ./dist/src/node.js --target node --format cjs",
     "build:browser": "bun build ./src/index.ts --outfile ./dist/src/browser.js --target browser",
     "build:types": "bun run dts-bundle-generator --external-inlines web-solc -o ./dist/src/browser.d.ts ./src/index.ts",
