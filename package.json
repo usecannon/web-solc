@@ -1,15 +1,27 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "@usecannon/web-solc",
+  "version": "0.5.1-rc.0",
+  "author": "g. nicholas d'andrea <nick@gnidan.org>",
+  "main": "dist/src/node.js",
+  "browser": "dist/src/browser.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usecannon/web-solc.git"
+  },
+  "dependencies": {
+    "web-solc": "0.5.1"
+  },
+  "description": "Fork of https://www.npmjs.com/package/web-solc with commonjs build",
+  "license": "MIT",
   "scripts": {
-    "start": "./bin/start",
-    "lerna": "lerna",
-    "postinstall": "lerna run prepare"
+    "build:node": "bun build ./src/index.ts --outfile ./dist/src/node.js --target node --format cjs",
+    "build:browser": "bun build ./src/index.ts --outfile ./dist/src/browser.js --target browser",
+    "build:types": "bun run tsc --declaration --types web-solc",
+    "build": "rm -rf ./dist && bun run build:node && bun run build:browser && bun run build:types"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "lerna": "^8.0.2"
+    "typescript": "^5.6.3"
   }
 }
